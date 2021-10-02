@@ -91,13 +91,15 @@ export default {
 			this.tasks = this.tasks.filter(t => t.id !== id);
 		},
 		newTask() {
-			let task = {
-				id: this.tasks.length + 1,
-				title: this.newTitle,
-				done: false,
-			};
-			this.tasks.unshift(task);
-			this.newTitle = '';
+			if (this.newTitle !== '') {
+				let task = {
+					id: this.tasks.length + 1,
+					title: this.newTitle,
+					done: false,
+				};
+				this.tasks.unshift(task);
+				this.newTitle = '';
+			}
 		},
 	},
 };
